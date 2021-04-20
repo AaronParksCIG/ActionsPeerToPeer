@@ -41,5 +41,5 @@ jobs:
         run: echo $MESSAGE
         
       - name: Test conditional logic
-        if: github.ref === 'refs/heads/triggerAction'
+        if: github.ref == 'refs/heads/triggerAction'
         run: echo $GITHUB_REF
