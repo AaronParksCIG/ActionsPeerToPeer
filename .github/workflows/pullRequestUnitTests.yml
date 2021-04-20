@@ -41,4 +41,4 @@ jobs:
         run: echo $MESSAGE
         
       - name: Test conditional logic
-        run: echo $GITHUB_BASE_REF
+        run: echo $GITHUB_HEAD_REF
