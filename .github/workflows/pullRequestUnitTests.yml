@@ -30,12 +30,12 @@ jobs:
       # Installs project dependencies
       - name: Install Dependencies
         run: npm install
-        working-directory: env.WORKING_DIRECTORY
+        working-directory: ${{env.WORKING_DIRECTORY}}
 
       # Runs unit tests
       - name: Run Unit Tests
         run: npm run test
-        working-directory: env.WORKING_DIRECTORY
+        working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Log environment variable
         run: echo $MESSAGE
