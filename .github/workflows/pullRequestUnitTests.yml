@@ -39,3 +39,7 @@ jobs:
         
       - name: Log environment variable
         run: echo $MESSAGE
+        
+      - name: Test conditional logic
+        if: github.ref === 'refs/heads/triggerAction'
+        run: echo $GITHUB_REF
