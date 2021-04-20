@@ -11,6 +11,9 @@ jobs:
   unitTests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    env:
+      MESSAGE: Thank you for attending my peer to peer.
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,3 +35,6 @@ jobs:
       - name: Run Unit Tests
         run: npm run test
         working-directory: ./my-app
+        
+      - name: Log environment variable
+        run: echo $MESSAGE
