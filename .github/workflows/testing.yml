@@ -11,6 +11,8 @@ jobs:
   testing:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      WORKING_DIRECTORY: ./my-app
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,8 +29,15 @@ jobs:
       # Install project dependencies
       - name: Install Dependencies
         run: npm install
-        working-directory: ./my-app
+        working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Run Unit Tests
         run: npm run test
-        working-directory: ./my-app
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        
+      - name: Echo environment variable
+        run: echo $WORKING_DIRECTORY
+        
+      - name: Conditional Logic demo
+        if: github.HEAD_REF == 'testing'
+        run: echo "On testing branch"
