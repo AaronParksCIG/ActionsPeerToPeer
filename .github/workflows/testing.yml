@@ -29,11 +29,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ${{WORKING_DIRECTORY}}
+        working-directory: ${{env.WORKING_DIRECTORY}}
 
       - name: Run unit tests
         run: npm run test
-        working-directory: ${{WORKING_DIRECTORY}}
+        working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Conditionally show message
         if: github.head_ref == 'testing'
