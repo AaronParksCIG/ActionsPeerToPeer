@@ -11,6 +11,10 @@ jobs:
   testing:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    
+    env:
+      WORKING_DIRECTORY: ./my-app
+      MESSAGE: Thank you for coming to my peer to peer presentation
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,8 +29,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./my-app
+        working-directory: ${{env.WORKING_DIRECTORY}}
 
       - name: Run Unit Tests
         run: npm run test
-        working-directory: ./my-app
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        
+      - name: Conditionally show message
+        if: github.head_ref == 'testing'
+        run: echo $MESSAGE
