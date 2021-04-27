@@ -35,5 +35,5 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Output Message
-        if: github.head_ref == 'testing'
+        if: github.head_ref == 'main'
         run: echo $MESSAGE
