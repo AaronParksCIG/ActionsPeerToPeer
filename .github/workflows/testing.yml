@@ -35,5 +35,5 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Display conditional logic
-        if: github.head_ref == 'test'
+        if: github.head_ref == 'testing'
         run: echo $MESSAGE
