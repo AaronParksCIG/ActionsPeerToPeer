@@ -34,5 +34,5 @@ jobs:
         working-directory: ${{env.WORKING_DIRECTORY}}
         
       - name: Conditionally Show Message
-        if: github.head_ref == 'asdf'
+        if: github.head_ref == 'triggerAction'
         run: echo $MESSAGE
